@@ -33,6 +33,38 @@ locals {
 # This means that the inputs block for infra/environments/dev/project already has all 
 # the inputs from this terragrunt file already.
 
+# A note on the functionality of yamldecode - 
+#     the docs are here: https://www.terraform.io/docs/language/functions/yamldecode.html
+
+# It takes yaml code and represents it like:
+#     yamldecode("{\"hello\": \"world\"}")
+
+#     =
+
+#     {
+#       "hello" = "world"
+#     }
+
+
+
+# A note on the functionality of merge - 
+#     the docs are here: https://www.terraform.io/docs/language/functions/merge.html
+
+# The docs show an example:
+#     merge({a="b", c="d"}, {e="f", c="z"})
+
+#     =
+
+#     {
+#       "a" = "b"
+#       "c" = "z"
+#       "e" = "f"
+#     }
+
+# When put together, they translate the root.yaml code and the env.yaml code into another 
+# representation of key/value pairs and then merge those key/value pairs into one big 
+# set which can be used for the inputs
+
 inputs = merge(
   yamldecode(file(find_in_parent_folders("root.yaml", local.default_yaml_path))),
   yamldecode(file(find_in_parent_folders("env.yaml", local.default_yaml_path))),
