@@ -40,7 +40,8 @@ locals {
 # One big advantage for this is that if there are updates to terraform or terragrunt or how to use the
 # Google modules then there is always backwards compatibility with the older tags.
 
-TODO: If not pushing to git explain the --terraform-source flag ere matey
+# If you're not ready to push your module code to GitHub yet then you can use the --terraforsm-source
+# flag. You can overwrite the terraform block below to use a local source for the module code.
 
 terraform {
   source = "git::ssh://git@github.com/${local.repo_owner}/pt1-training-project-1-modules.git//project?ref=${local.version}"
@@ -51,6 +52,12 @@ terraform {
 # The include block here is used to import terragrunt configuration files. I think
 # this is the same as the import keyword in python or the include keyword in c++. It's
 # used to include/import packages within the codebase.
+
+# You would do this to use pre-existing functionality that doesn't come as default with
+# the programming language you're using. For example, you're writing some code in Python
+# and you want to be able to hit a website and get the response back. There's already a package
+# for that: requests. This doesn't come within the standard Python library though so you would
+# have to import it to use it
 
 # In this instance, the find_in_parent_folders() function searches up the folder structure.
 # Having it within the include block here just means it can be used elsewhere within the file.
