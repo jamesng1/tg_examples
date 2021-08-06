@@ -93,6 +93,10 @@ dependency "host_project" {
   }
 }
 
+# -------------------------------- TERRAFORM ----------------------------------------------------#
+
+# Refer to the project/terragrunt.hcl file
+
 terraform {
   source = "git::ssh://git@github.com/${local.repo_owner}/pt1-training-project-1-modules.git//vpc?ref=${local.version}"
 }

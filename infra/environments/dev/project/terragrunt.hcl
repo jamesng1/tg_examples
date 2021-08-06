@@ -7,7 +7,7 @@
 #     org_id
 
 # However, these are not found within the inputs block below. That's because they have already been
-# defined in the root level terragrunt.hcl inputs block
+# defined in the root.yaml and then imported into the root level terragrunt.hcl inputs block
 
 inputs = {
   apis = [
@@ -39,6 +39,8 @@ locals {
 # Using git tag means that you can have multiple versions of the modules and they can all be easily referenced.
 # One big advantage for this is that if there are updates to terraform or terragrunt or how to use the
 # Google modules then there is always backwards compatibility with the older tags.
+
+TODO: If not pushing to git explain the --terraform-source flag ere matey
 
 terraform {
   source = "git::ssh://git@github.com/${local.repo_owner}/pt1-training-project-1-modules.git//project?ref=${local.version}"
