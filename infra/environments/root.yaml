@@ -1,0 +1,16 @@
+
+# This root.yaml is linked to Mulkuk (https://docs.cts-gcp.com/tooling/mukluk/)
+# Mukluk will update this root.yaml file with relevant info which will be used
+# within other Terragrunt files
+
+billing_account: 00976C-63A0B7-F8AB7D # This is the CTS internal billing account
+folder_id: folders/<folder>
+members:
+- group:gcp-platform-1@cloudsolutions.co.uk
+org_id: "<org id>"
+prefix: prefix
+project_factory_project: <project factory project>
+region: europe-west2
+repo_owner: Cloud-Technology-Solutions
+service_account: service@account.iam.gserviceaccount.com
+zone: europe-west2-a
